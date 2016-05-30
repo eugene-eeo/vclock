@@ -16,12 +16,14 @@ def merge(a, b):
 
 
 def compare(a, b):
-    greater = False
-    smaller = False
+    gt = False
+    lt = False
     for j, k in zip(a, b):
-        greater |= j > k
-        smaller |= j < k
-    return int(greater) - int(smaller)
+        gt |= j > k
+        lt |= j < k
+        if gt and lt:
+            break
+    return int(gt) - int(lt)
 
 
 sort = partial(sorted, key=cmp_to_key(compare))
