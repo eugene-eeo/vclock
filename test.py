@@ -82,5 +82,11 @@ class IsConcurrentTest(TestCase):
         assert vclock.is_concurrent((0, 2, 1), (2, 0, 1))
 
 
+class IncrementTest(TestCase):
+    def test_increment(self):
+        assert vclock.increment((0, 1), 0) == (1, 1)
+        assert vclock.increment((0, 0), 1) == (0, 1)
+
+
 if __name__ == '__main__':
     main()

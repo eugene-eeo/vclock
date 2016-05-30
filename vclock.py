@@ -29,3 +29,9 @@ sort = partial(sorted, key=cmp_to_key(compare))
 
 def is_concurrent(a, b):
     return (a != b) and compare(a, b) == 0
+
+
+def increment(clock, index):
+    return clock[:index] \
+            + (clock[index] + 1,) \
+            + clock[index+1:]
