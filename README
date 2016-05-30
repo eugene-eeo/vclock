@@ -1,0 +1,29 @@
+
+  vclock
+
+  Mostly experimental Python library for manipulating vector clocks,
+  written in the style of the heapq[1] library, and inspired by the
+  vectorclock[2] JS library.
+
+  [1]: https://docs.python.org/3.5/library/heapq.html
+  [2]: https://github.com/mixu/vectorclock
+
+  API
+  ===
+
+    >>> import vclock
+    >>> vclock.from_size(3)
+    (0, 0, 0)
+    >>> vclock.merge((1, 2), (3, 2))
+    (3, 2)
+    >>> [
+        vclock.compare((1, 1), (1, 2)),
+        vclock.compare((1, 1), (1, 1)),
+        vclock.compare((1, 1), (1, 0)),
+        vclock.compare((1, 2), (2, 1)),
+        ]
+    [-1, 0, 1, 0]
+    >>> vclock.sort([(1, 2), (3, 2)], reverse=True)
+    [(3, 2), (1, 2)]
+    >>> vclock.is_concurrent((1, 2), (2, 1))
+    True
