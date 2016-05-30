@@ -15,7 +15,7 @@ def compare(a, b):
     for j, k in zip(a, b):
         greater |= j > k
         smaller |= j < k
-    return greater - smaller
+    return int(greater) - int(smaller)
 
 
 sort = partial(sorted, key=cmp_to_key(compare))
