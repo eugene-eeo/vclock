@@ -22,4 +22,4 @@ sort = partial(sorted, key=cmp_to_key(compare))
 
 
 def is_concurrent(a, b):
-    return compare(a, b) == 0
+    return (a != b) and compare(a, b) == 0
