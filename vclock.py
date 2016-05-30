@@ -4,6 +4,7 @@ from functools import cmp_to_key, partial
 
 if sys.version_info[0] == 2:
     zip = itertools.izip
+    map = itertools.imap
 
 
 def from_size(n):
@@ -11,7 +12,7 @@ def from_size(n):
 
 
 def merge(a, b):
-    return tuple(max(j, k) for j, k in zip(a, b))
+    return tuple(map(max, zip(a, b)))
 
 
 def compare(a, b):
