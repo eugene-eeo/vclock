@@ -48,12 +48,14 @@ class CompareTest(TestCase):
         [(1, 0), (1, 1)],
         ]
 
+    EQUAL = [
+        [(0, 0), (0, 0)],
+        [(1, 2), (2, 1)],
+        ]
+
+    test_compare_equal   = gen_cmp_test(EQUAL, 0)
     test_compare_lesser  = gen_cmp_test(LESSER, -1)
     test_compare_greater = gen_cmp_test(map(reversed, LESSER), 1)
-    test_compare_equal   = gen_cmp_test(
-        [[(0, 0), (0, 0)],
-         [(1, 2), (2, 1)]],
-        0)
 
 
 class SortTest(TestCase):
