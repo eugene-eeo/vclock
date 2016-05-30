@@ -1,4 +1,9 @@
+import sys
+import itertools
 from functools import cmp_to_key, partial
+
+if sys.version_info[0] == 2:
+    zip = itertools.izip
 
 
 def from_size(n):
