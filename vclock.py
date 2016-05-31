@@ -26,9 +26,6 @@ def compare(a, b):
     return int(gt) - int(lt)
 
 
-sort = partial(sorted, key=cmp_to_key(compare))
-
-
 def sort(xs, key=None, reverse=False):
     cmpfunc = (
             compare if key is None else

@@ -74,6 +74,17 @@ class SortTest(TestCase):
                 (2, 2),
                 ]
 
+    def test_compare_key(self):
+        data = [
+            ((0, 2), 1),
+            ((0, 1), 2),
+        ]
+        self.assertEqual(
+            vclock.sort(data, key=lambda x: x[0]),
+            [((0, 1), 2), ((0, 2), 1)]
+            )
+
+
 class IsConcurrentTest(TestCase):
     def test_equal_not_concurrent(self):
         assert not vclock.is_concurrent((1, 0), (1, 0))
