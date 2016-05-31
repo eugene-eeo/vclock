@@ -34,9 +34,9 @@ class MergeTest(TestCase):
 
 
 def gen_cmp_test(pairs, expected):
-    def function(*_):
+    def function(self):
         for a, b in pairs:
-            assert vclock.compare(a, b) == expected
+            self.assertEqual(vclock.compare(a, b), expected)
     return function
 
 

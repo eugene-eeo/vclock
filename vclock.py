@@ -29,6 +29,15 @@ def compare(a, b):
 sort = partial(sorted, key=cmp_to_key(compare))
 
 
+def sort(xs, key=None, reverse=False):
+    cmpfunc = (
+            compare if key is None else
+            lambda a, b: compare(key(a), key(b))
+        )
+    return sorted(xs, key=cmp_to_key(cmpfunc),
+                      reverse=reverse)
+
+
 def is_concurrent(a, b):
     return (a != b) and compare(a, b) == 0
 
