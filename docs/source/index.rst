@@ -14,6 +14,21 @@ library, built in the style of heapq_ for manipulating them::
 
 .. _heapq: https://docs.python.org/3.5/library/heapq.html
 
+Installation
+------------
+
+.. code-block:: shell
+
+   $ pip install vclock
+
+For development purposes,
+
+.. code-block:: shell
+
+   $ git clone https://github.com/eugene-eeo/vclock
+   $ cd vclock
+   $ pip install --editable .
+
 API
 ---
 
