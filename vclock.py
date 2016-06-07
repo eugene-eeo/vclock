@@ -10,7 +10,7 @@
 
 import sys
 import itertools
-from functools import cmp_to_key, partial
+from functools import cmp_to_key
 
 if sys.version_info[0] == 2:
     zip = itertools.izip
