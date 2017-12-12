@@ -56,12 +56,8 @@ def sort(xs, key=None, reverse=False):
     whether to *reverse* the sorting (defaults to
     ascending order).
     """
-    cmpfunc = (
-            compare if key is None else
-            lambda a, b: compare(key(a), key(b))
-        )
-    return sorted(xs, key=cmp_to_key(cmpfunc),
-                      reverse=reverse)
+    cmpfunc = compare if key is None else lambda a, b: compare(key(a), key(b))
+    return sorted(xs, key=cmp_to_key(cmpfunc), reverse=reverse)
 
 
 def is_concurrent(a, b):
@@ -77,5 +73,5 @@ def increment(clock, index):
     Increment the clock at *index*.
     """
     return clock[:index] \
-            + (clock[index] + 1,) \
-            + clock[index+1:]
+        + (clock[index] + 1,) \
+        + clock[index+1:]
